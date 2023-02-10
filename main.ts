@@ -124,8 +124,11 @@ sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Player, function (sprite, ot
         ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
         `)
     tiles.setCurrentTilemap(tilemap`level2`)
+    projectile = sprites.createProjectileFromSprite(assets.image`Sword`, mySprite, 0, 50)
 })
+let projectile: Sprite = null
 let snake: Sprite = null
+let mySprite: Sprite = null
 let King: Sprite = null
 King = sprites.create(img`
     . . . . . . . . . . . . . . . . 
@@ -145,7 +148,7 @@ King = sprites.create(img`
     . . . . . f f f f f f . . . . . 
     . . . . . f f . . f f . . . . . 
     `, SpriteKind.Enemy)
-let mySprite = sprites.create(img`
+mySprite = sprites.create(img`
     . . . . f f f f . . . . . 
     . . f f c c c c f f . . . 
     . f f c c c c c c f f . . 
@@ -307,3 +310,4 @@ scene.setBackgroundImage(img`
     fffffffffffffffffffffffffffffffffbffffffbffffffffffffffffffffffbfcffffcfffffffffffffffcffffffffffffffffffffffffffffffffffffffffffffffffffffdddffffffffffccffffff
     `)
 tiles.setCurrentTilemap(tilemap`level1`)
+controller.moveSprite(mySprite, 0, 100)
